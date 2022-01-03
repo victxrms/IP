@@ -1,4 +1,4 @@
 # IP
 Algunos ejercicios de las practicas de IP
 
-/github/languages/top/:user/:repo
+# /github/languages/top/:user/:repo
