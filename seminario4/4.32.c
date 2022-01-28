@@ -87,7 +87,6 @@ void rellena (trabajador trab_v[])
     }
 }
 
-
 void salarios (trabajador trab_v[])
 {
     int i, j;
@@ -112,6 +111,6 @@ void salarios (trabajador trab_v[])
                 }
         
         printf ("El salario del trabajador con ID %i es de %.2f\n", i, salt);
+        
     }
-
 }
