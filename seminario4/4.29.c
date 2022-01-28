@@ -66,8 +66,7 @@ void rellena (trabajador trab_v[])
         for (j = 0; j < D; j++)
         {
             printf("Introduce la hora de llegada  del dia %i del trabajador con ID %i\n", j+1, i);
-            scanf ("%i", &aux);
-            trab_v[i].llegada[j].hora = aux;
+            scanf ("%i", &trab_v[i].llegada[j].hora);
             fflush (stdin);       
             printf("Introduce el minuto de llegada  del dia %i del trabajador con ID %i\n", j+1, i);
             scanf ("%i", &trab_v[i].llegada[j].min);
@@ -77,8 +76,7 @@ void rellena (trabajador trab_v[])
             fflush (stdin);
 
             printf("Introduce la hora de salida del dia %i del trabajador con ID %i\n", j+1, i);
-            scanf ("%i", &aux);
-            trab_v[i].salida[j].hora = aux;    
+            scanf ("%i", &trab_v[i].salida[j].hora);
             printf("Introduce el minuto de salida del dia %i del trabajador con ID %i\n", j+1, i);
             scanf ("%i", &trab_v[i].salida[j].min);
             fflush (stdin);          
@@ -98,7 +96,7 @@ void salarios (trabajador trab_v[])
 
     for (i = 0; i < N; i++)
     {
-        for (j = 0; j < 5; j++)
+        for (j = 0; j < D; j++)
         {
             hor = trab_v[i].salida[j].hora - trab_v[i].llegada[j].hora + hor;
         }
@@ -112,7 +110,6 @@ void salarios (trabajador trab_v[])
                 salt = hor * trab_v[i].salar_h;
                 printf ("El trabajador con ID %i no ha trabajado las horas minimas, contando asi con un total de %i horas trabajadas", i, hor);
                 }
-
         
         printf ("El salario del trabajador con ID %i es de %.2f\n", i, salt);
     }
