@@ -12,7 +12,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define N 2
+#define N 1
+#define D 2
+
+typedef struct
+{
+    int hora;
+    int min;
+    int seg;
+
+}horario;
 
 typedef struct 
 {
@@ -24,20 +33,12 @@ typedef struct
 
 }trabajador;
 
-typedef struct
-{
-    int hora;
-    int min;
-    int seg;
-
-}horario;
 
 void rellena (trabajador trab_v[N]);
 void salarios (trabajador trab_v[N]);
 
 int main ()
 {
-    int i, j;
     trabajador trab_v[N];
 
     rellena (trab_v);
@@ -62,26 +63,26 @@ void rellena (trabajador trab_v[])
         scanf ("%f", &trab_v[i].salar_h);
         fflush (stdin);
 
-        for (j = 0; j < 5; j++)
+        for (j = 0; j < D; j++)
         {
-            printf("Introduce la hora de llegada  del dia %i del trabajador con ID %i\n", i+1, i+1);
+            printf("Introduce la hora de llegada  del dia %i del trabajador con ID %i\n", j+1, i);
             scanf ("%i", &trab_v[i].llegada[j].hora);
             fflush (stdin);       
-            printf("Introduce el minuto de llegada  del dia %i del trabajador con ID %i\n", i+1, i+1);
-            scanf ("%i", &trab_v[i].llegada[j].minuto);
+            printf("Introduce el minuto de llegada  del dia %i del trabajador con ID %i\n", j+1, i);
+            scanf ("%i", &trab_v[i].llegada[j].min);
             fflush (stdin);          
-            printf("Introduce el segundo de llegada  del dia %i del trabajador con ID %i\n", i+1, i+1);
-            scanf ("%i", &trab_v[i].llegada[j].segundo);
+            printf("Introduce el segundo de llegada  del dia %i del trabajador con ID %i\n", j+1, i);
+            scanf ("%i", &trab_v[i].llegada[j].seg);
             fflush (stdin);
 
-            printf("Introduce la hora de salida del dia %i del trabajador con ID %i\n", i+1, i+1);
+            printf("Introduce la hora de salida del dia %i del trabajador con ID %i\n", j+1, i);
             scanf ("%i", &trab_v[i].salida[j].hora);
             fflush (stdin);       
-            printf("Introduce el minuto de salida del dia %i del trabajador con ID %i\n", i+1, i+1);
-            scanf ("%i", &trab_v[i].salida[j].minuto);
+            printf("Introduce el minuto de salida del dia %i del trabajador con ID %i\n", j+1, i);
+            scanf ("%i", &trab_v[i].salida[j].min);
             fflush (stdin);          
-            printf("Introduce el segundo de salida del dia %i del trabajador con ID %i\n", i+1, i+1);
-            scanf ("%i", &trab_v[i].salida[j].segundo);
+            printf("Introduce el segundo de salida del dia %i del trabajador con ID %i\n", j+1, i);
+            scanf ("%i", &trab_v[i].salida[j].seg);
             fflush (stdin);
         }
     }
@@ -90,6 +91,28 @@ void rellena (trabajador trab_v[])
 
 void salarios (trabajador trab_v[])
 {
+    int i, j, hor=0, segs = 0, mins = 0;
+    float salt = 0;
 
-    
+    for (i = 0; i < N; i++)
+    {
+        for (j = 0; j < 5; j++)
+        {
+            hor = trab_v[i].salida[j].hora - trab_v[i].llegada[j].hora + hor;
+        }
+
+        if (hor >= 35)
+            {
+                hor = hor - 35;
+                salt = (35*trab_v[i].salar_h) + (hor*trab_v[i].salar_h*1.1);
+            } else 
+                {
+                salt = hor * trab_v[i].salar_h;
+                printf ("El trabajador con ID %i no ha trabajado las horas minimas, contando asi con un total de %i horas trabajadas", i, hor);
+                }
+
+        
+        printf ("El salario del trabajador con ID %i es de %.2f\n", i, salt);
+    }
+
 }
