@@ -49,7 +49,7 @@ int main ()
 
 void rellena (trabajador trab_v[])
 {
-    int i, j;
+    int i, j, aux;
 
     for (i = 0; i < N; i++)
     {
@@ -66,7 +66,8 @@ void rellena (trabajador trab_v[])
         for (j = 0; j < D; j++)
         {
             printf("Introduce la hora de llegada  del dia %i del trabajador con ID %i\n", j+1, i);
-            scanf ("%i", &trab_v[i].llegada[j].hora);
+            scanf ("%i", &aux);
+            trab_v[i].llegada[j].hora = aux;
             fflush (stdin);       
             printf("Introduce el minuto de llegada  del dia %i del trabajador con ID %i\n", j+1, i);
             scanf ("%i", &trab_v[i].llegada[j].min);
@@ -76,8 +77,8 @@ void rellena (trabajador trab_v[])
             fflush (stdin);
 
             printf("Introduce la hora de salida del dia %i del trabajador con ID %i\n", j+1, i);
-            scanf ("%i", &trab_v[i].salida[j].hora);
-            fflush (stdin);       
+            scanf ("%i", &aux);
+            trab_v[i].salida[j].hora = aux;    
             printf("Introduce el minuto de salida del dia %i del trabajador con ID %i\n", j+1, i);
             scanf ("%i", &trab_v[i].salida[j].min);
             fflush (stdin);          
@@ -91,7 +92,8 @@ void rellena (trabajador trab_v[])
 
 void salarios (trabajador trab_v[])
 {
-    int i, j, hor=0, segs = 0, mins = 0;
+    int i, j;
+    unsigned hor=0, segs = 0, mins = 0;
     float salt = 0;
 
     for (i = 0; i < N; i++)
