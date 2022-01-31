@@ -110,7 +110,6 @@ void lanztot (participante part_v[], char cat, float pes)
                 auxpart[j] = i;
                 max[j] = part_v[i].lanz_v[j].puntot;
             }
-
         }
     }
 
