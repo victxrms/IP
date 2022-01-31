@@ -86,11 +86,11 @@ void busca (prod *prod_v, char *produc)
 /*
 Apartado c)
 
-Cabecera: procedimiento proc(prod_v)
+Cabecera: procedimiento proc(E prod prod_v)
 Precondición: Recibe el vector de registro prod
 Postcondicion: Devuelve el producto con mayor margen de beneficio (coste-venta)
 
-procedimiento proc (vector prod_v)
+procedimiento proc (E prod prod_v)
 
     var 
     entero i, max <- 0, aux = 0
