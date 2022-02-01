@@ -123,9 +123,3 @@ void fact (char *nomb, int tur)
         fprintf ("El total del comensal %s a lo largo del mes para el turno seleccionado es de %.2f\n", nomb, tot);
     }
 }
-
-
-
-
-
-
