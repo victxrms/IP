@@ -89,6 +89,7 @@
                         fin_si
                     fin_desde
                     escribir ("El numero de mesas libres para el turno %i el día %i es de: %i mesas", j, i, 25-mesas)
+                    mesas <- 0
                 fin_desde
             fin_desde
             segun sea (maxt) hacer
