@@ -1,2 +1,2 @@
-# IP
-Algunos ejercicios de las practicas de IP así como ejercicios de exámanes pasados con sus propios enunciados
+# IP - Introduction to programming
+Some exercises of the subject alongside exams and their headings.
